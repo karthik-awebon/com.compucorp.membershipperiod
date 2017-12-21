@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/MembershipPeriod</base>
+  <class>MembershipPeriod</class>
+  <name>civicrm_membership_period</name>
+   <comment>Membership Period Table</comment>
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique MembershipPeriod ID</comment>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+  <field>
+    <name>start_date</name>
+    <type>date</type>
+    <comment>Membership Period start date</comment>
+  </field>
+  <field>
+    <name>end_date</name>
+    <type>date</type>
+    <comment>Membership Period end date</comment>
+  </field>
+  <field>
+    <name>membership_id</name>
+    <type>int unsigned</type>
+    <comment>Foreign key to Membership ID</comment>
+  </field>  
+  <field>
+    <name>contribution_id</name>
+    <type>int unsigned</type>
+    <comment>Conditional foreign key to civicrm_contribution id.</comment>
+  </field>
+  <foreignKey>
+    <name>membership_id</name>
+    <table>civicrm_membership</table>
+    <key>id</key>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>  
+  <foreignKey>
+    <name>contribution_id</name>
+    <table>civicrm_contribution</table>
+    <key>id</key>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+</table>
